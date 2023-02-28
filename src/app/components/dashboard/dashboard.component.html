@@ -1,0 +1,103 @@
+
+
+
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+
+  <mat-grid-list cols="3">
+
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon style="color:#af2c22;">add_location</mat-icon>&nbsp;&nbsp;Reservas por sede
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container">
+            <canvas id="cantReservas">{{consultReservas}}</canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon style="color:#af2c22;">timer</mat-icon>&nbsp;&nbsp;Reservas por fecha
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container" >
+            <canvas id="cantReservasFecha" width="150" height="150">{{consultReservasFecha}}</canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon style="color:#af2c22;">shop_two</mat-icon>&nbsp;&nbsp;Ventas
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container">
+            <canvas id="cantVentas">{{consultVentas}}</canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon style="color:#af2c22;">question_answer</mat-icon>&nbsp;&nbsp;Preguntas
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container">
+            <canvas id="cantPreguntas">{{consultPreguntas}}</canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon style="color:#af2c22;">fastfood</mat-icon>&nbsp;&nbsp;Productos
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container">
+            <canvas id="cantProductos">{{consultProductos}}</canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon style="color:#af2c22;">supervised_user_circle</mat-icon>&nbsp;&nbsp;Usuarios
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container">
+            <canvas id="cantUsuarios">{{consultUsuarios}}</canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+
+</div>

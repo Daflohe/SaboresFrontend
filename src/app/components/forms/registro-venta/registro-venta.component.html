@@ -1,0 +1,53 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-content>
+
+      <div class="col">
+
+      <div class="row">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Producto" formControlName="producto">
+              <mat-option *ngFor="let producto of productos" [value]="producto[0].idProducto">
+                {{ producto[0].nombreProducto +' - ' +producto[0].precio+'$' }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['producto'].hasError('required')">
+              El producto es <strong>obligatorio.</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Cantidad" type="number" formControlName="cantidad">
+            <mat-error *ngIf="addressForm.controls['cantidad'].hasError('required')">
+              La cantidad <strong>obligatoria.</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+        <div class="row">
+          <mat-form-field class="full-width">
+            <input readonly matInput placeholder="Fecha" type="date" formControlName="fecha" [ngModel]='hoy | date:"yyyy-MM-dd"' >
+            <mat-error *ngIf="addressForm.controls['fecha'].hasError('required')">
+             La fecha es <strong>obligatoria.</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+   <button mat-raised-button style="color: #af2c22;" type="submit" [disabled]="!addressForm.valid">{{title}} venta</button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>
+

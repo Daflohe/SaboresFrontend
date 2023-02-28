@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <img style="width: 150px;" src="../../../assets//imgs/Logo.png" alt="Logo Sabores">
+
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/ResumenRestaurante"><mat-icon> bar_chart</mat-icon>&nbsp;&nbsp;&nbsp;Resumen</a>
+      <a mat-list-item href="/RealizaReserva"><mat-icon>calendar_today</mat-icon>&nbsp;&nbsp;&nbsp;Realizar reserva</a>
+      <a mat-list-item href="/RealizaPregunta"><mat-icon>question_answer</mat-icon>&nbsp;&nbsp;&nbsp;Preguntas</a>
+      <a mat-list-item href="/RegistroVenta"><mat-icon> attach_money</mat-icon>&nbsp;&nbsp;&nbsp;Venta</a>
+      <a mat-list-item href="/ModificaProducto"><mat-icon>add_shopping_cart</mat-icon>&nbsp;&nbsp;&nbsp;Productos</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #af2c22;">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span style="color: white;"><mat-icon style="color:#ffffff;">restaurant</mat-icon> &nbsp;&nbsp;Bienvenido {{nombre}}</span>
+      <button mat-button [matMenuTriggerFor]="user" #menuTrigger><mat-icon style="color:#ffffff;">settings_applications</mat-icon></button>
+      <mat-menu #user="matMenu">
+        <button mat-menu-item (click)="avatar()"><mat-icon>account_circle</mat-icon>&nbsp;&nbsp;Editar perfil</button>
+        <button mat-menu-item (click)="logout()"><mat-icon>close</mat-icon>&nbsp;&nbsp;Cerrar Sesión</button>
+      </mat-menu>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
